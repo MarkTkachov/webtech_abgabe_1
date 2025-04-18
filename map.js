@@ -3,8 +3,8 @@ const map = L.map("map", {
     zoomDelta: 0.2,
     wheelPxPerZoomLevel: 140,
     maxBounds: [
-        [52.355284, 9.721377],
-        [52.351588, 9.728082],
+        [52.359012, 9.715079],
+        [52.348455, 9.733232],
     ],
 }).setView([52.353573, 9.724193], 17);
 const tileLayer = L.tileLayer(
@@ -16,80 +16,32 @@ const tileLayer = L.tileLayer(
     }
 ).addTo(map);
 
-const KPolygon = L.polygon([
-    [52.353552, 9.72242],
-    [52.35389, 9.722517],
-    [52.353839, 9.723049],
-    [52.3535, 9.722965],
-]).addTo(map);
-KPolygon.bindPopup("Bibliothek");
+class CenterControl extends L.Control {
+    constructor(options) {
+        super(options);
+        this.options = options;
+    }
 
-const IPolygon = L.polygon([
-    [52.35337, 9.723423],
-    [52.352862, 9.723313],
-    [52.352816, 9.723799],
-    [52.352905, 9.723818],
-    [52.352915, 9.723756],
-    [52.353075, 9.723796],
-    [52.353085, 9.723732],
-    [52.353329, 9.723802],
-]).addTo(map);
+    onAdd(map) {
+        const container = document.createElement("div");
+        container.className = "leaflet-bar leaflet-control leaflet-control-custom";
+        const button = document.createElement("button");
+        container.appendChild(button);
+        // const container = L.DomUtil.create("div", "leaflet-bar");
+        // const button = L.DomUtil.create("button", "", container);
+        button.innerHTML = "Center";
+        button.onclick = () => {
+            map.setView([52.353573, 9.724193], 17);
+        };
+        return container;
+    }
+}
 
-const JPolygon = L.polygon([
-    [52.353385, 9.722525],
-    [52.352972, 9.72242],
-    [52.352908, 9.72312],
-    [52.353319, 9.723225],
-]).addTo(map);
+new CenterControl({
+    position: "topright",
+}).addTo(map);
 
-const HPolygon = L.polygon([
-    [52.353418, 9.724097],
-    [52.352951, 9.723976],
-    [52.352939, 9.724064],
-    [52.352897, 9.724059],
-    [52.352844, 9.724638],
-    [52.35289, 9.724649],
-    [52.35288, 9.724743],
-    [52.353349, 9.724858],
-    [52.353382, 9.724523],
-    [52.353406, 9.724518],
-    [52.353413, 9.724443],
-    [52.35339, 9.724424],
-]).addTo(map);
 
-const GPolygon = L.polygon([
-    [52.353319, 9.725054],
-    [52.353247, 9.725035],
-    [52.353249, 9.724987],
-    [52.353157, 9.724968],
-    [52.353152, 9.725014],
-    [52.352949, 9.724963],
-    [52.352931, 9.72514],
-    [52.353303, 9.725231],
-]).addTo(map);
-
-const FPolygon = L.polygon([
-    [52.353457, 9.725569],
-    [52.353249, 9.725513],
-    [52.353218, 9.725859],
-    [52.353426, 9.725907],
-]).addTo(map);
-
-const CPolygon = L.polygon([
-    [52.35443, 9.725507],
-    [52.354419, 9.725631],
-    [52.353985, 9.725524],
-    [52.354008, 9.725247],
-    [52.354361, 9.725341],
-    [52.35435, 9.725486],
-]).addTo(map);
-
-const DPolygon = L.polygon([
-    [52.354006, 9.72565],
-    [52.353983, 9.725891],
-    [52.353865, 9.725864],
-    [52.35389, 9.725626],
-]).addTo(map);
 
 const APolygon = L.polygon([
     [52.354514, 9.723147],
@@ -105,6 +57,14 @@ const APolygon = L.polygon([
     [52.354279, 9.723139],
     [52.354284, 9.723083],
 ]).addTo(map);
+APolygon.bindPopup(
+    renderPopupContent({
+        title: "1A: Hauptgebäude",
+        description: "Das Hauptgebäude am Campus Linden",
+        photoSrc:
+            "https://cloudfront-eu-central-1.images.arcpublishing.com/madsack/KEHBM5U7OJFEDAZ764TATPU3NE.jpg",
+    })
+);
 
 const BPolygon = L.polygon([
     [52.354737, 9.723861],
@@ -136,6 +96,46 @@ const BPolygon = L.polygon([
     [52.354414, 9.723702],
     [52.354407, 9.723777],
 ]).addTo(map);
+BPolygon.bindPopup(
+    renderPopupContent({
+        title: "1B: Das große Ding 2",
+        description: "Hochschule Hannover am Campus Linden",
+        photoSrc:
+            "https://lh3.googleusercontent.com/p/AF1QipPbV4s8w0l5psWHi-omcYW0Bczh8ZRv-i2DVTEu=w408-h306-k-no",
+    })
+);
+
+const CPolygon = L.polygon([
+    [52.35443, 9.725507],
+    [52.354419, 9.725631],
+    [52.353985, 9.725524],
+    [52.354008, 9.725247],
+    [52.354361, 9.725341],
+    [52.35435, 9.725486],
+]).addTo(map);
+CPolygon.bindPopup(
+    renderPopupContent({
+        title: "1C: ITServiceDesk",
+        description: "ITServiceDesk am Campus Linden",
+        photoSrc:
+            "https://lh3.googleusercontent.com/p/AF1QipPbV4s8w0l5psWHi-omcYW0Bczh8ZRv-i2DVTEu=w408-h306-k-no",
+    })
+);
+
+const DPolygon = L.polygon([
+    [52.354006, 9.72565],
+    [52.353983, 9.725891],
+    [52.353865, 9.725864],
+    [52.35389, 9.725626],
+]).addTo(map);
+DPolygon.bindPopup(
+    renderPopupContent({
+        title: "1D: Institut für Energie und Klimaschutz der Hochschule Hannover",
+        description: "Institut für Energie und Klimaschutz der Hochschule Hannover am Campus Linden",
+        photoSrc:
+            "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=_uMa8qoncmIceP2mal6lJg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=290.74298&pitch=0&thumbfov=100",
+    })
+);
 
 const EPolygon = L.polygon([
     [52.354153, 9.724014],
@@ -169,3 +169,129 @@ const EPolygon = L.polygon([
     [52.35415, 9.723633],
     [52.354117, 9.724],
 ]).addTo(map);
+EPolygon.bindPopup(
+    renderPopupContent({
+        title: "1E: Das große Ding",
+        description: "Das große Ding am Campus Linden",
+        photoSrc:
+            "https://www.ladplus.de/fileadmin/images/projekte/02_Kultur_und_Bildung_Hochschule_Hannover_Campus_Linden/01-HSH-Campus-Linden-IMG_9919.jpg",
+    })
+);
+
+const FPolygon = L.polygon([
+    [52.353457, 9.725569],
+    [52.353249, 9.725513],
+    [52.353218, 9.725859],
+    [52.353426, 9.725907],
+]).addTo(map);
+FPolygon.bindPopup(
+    renderPopupContent({
+        title: "1F: Tschernobyl",
+        description: "Das Atomkraftwerk am Campus Linden",
+        photoSrc:
+            "https://lh3.googleusercontent.com/p/AF1QipNQKItGL1u0UebEHwGGq2Z8YKGwgQ1WJYZDlCdd=w426-h240-k-no",
+    })
+);
+
+const GPolygon = L.polygon([
+    [52.353319, 9.725054],
+    [52.353247, 9.725035],
+    [52.353249, 9.724987],
+    [52.353157, 9.724968],
+    [52.353152, 9.725014],
+    [52.352949, 9.724963],
+    [52.352931, 9.72514],
+    [52.353303, 9.725231],
+]).addTo(map);
+GPolygon.bindPopup(
+    renderPopupContent({
+        title: "1G: Keine Ahnung",
+        description: "Hier ist etwas",
+        photoSrc:
+            "bilder/1g.png",
+    })
+);
+
+const HPolygon = L.polygon([
+    [52.353418, 9.724097],
+    [52.352951, 9.723976],
+    [52.352939, 9.724064],
+    [52.352897, 9.724059],
+    [52.352844, 9.724638],
+    [52.35289, 9.724649],
+    [52.35288, 9.724743],
+    [52.353349, 9.724858],
+    [52.353382, 9.724523],
+    [52.353406, 9.724518],
+    [52.353413, 9.724443],
+    [52.35339, 9.724424],
+]).addTo(map);
+HPolygon.bindPopup(
+    renderPopupContent({
+        title: "1H: Die IT-Höhle",
+        description: "Die IT-Höhle am Campus Linden",
+        photoSrc:
+            "https://f4.hs-hannover.de/fileadmin/HsH/Fakultaet_IV/Aktuelles/1H-Haupteingang-Mensaeingang.jpg",
+    })
+);
+
+const IPolygon = L.polygon([
+    [52.35337, 9.723423],
+    [52.352862, 9.723313],
+    [52.352816, 9.723799],
+    [52.352905, 9.723818],
+    [52.352915, 9.723756],
+    [52.353075, 9.723796],
+    [52.353085, 9.723732],
+    [52.353329, 9.723802],
+]).addTo(map);
+IPolygon.bindPopup(
+    renderPopupContent({
+        title: "1I: Mensa",
+        description: "Die Mensa am Campus Linden",
+        photoSrc:
+            "https://at.gruender.de/wp-content/uploads/2023/04/Pizza-Hut-Gruender-scaled.jpeg",
+    })
+);
+
+const JPolygon = L.polygon([
+    [52.353385, 9.722525],
+    [52.352972, 9.72242],
+    [52.352908, 9.72312],
+    [52.353319, 9.723225],
+]).addTo(map);
+JPolygon.bindPopup(
+    renderPopupContent({
+        title: "1J: Studierendenzentrum",
+        description: "Das Studierendenzentrum am Campus Linden",
+        photoSrc:
+            "https://nexster.de/wp-content/uploads/bild-von-ios-4-400x299.jpg",
+    })
+);
+
+const KPolygon = L.polygon([
+    [52.353552, 9.72242],
+    [52.35389, 9.722517],
+    [52.353839, 9.723049],
+    [52.3535, 9.722965],
+]).addTo(map);
+KPolygon.bindPopup(
+    renderPopupContent({
+        title: "1K: Bibliothek",
+        description: "Die Bibliothek am Campus Linden",
+        photoSrc:
+            "https://upload.wikimedia.org/wikipedia/commons/e/e7/Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg",
+    })
+);
+
+function renderPopupContent({ title, description, photoSrc }) {
+    return `
+        <div class="popup-content">
+            <h2>${title}</h2>
+            <div>
+                <p>${description}</p>
+                <img style="width: 100px; height: 100px" src="${photoSrc}" alt="${title}">
+            </div>
+        </div>
+    `;
+}
