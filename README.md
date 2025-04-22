@@ -1,7 +1,12 @@
 ## HTML
-
- - hier rein
- - 
+- Wir nutzen insgesamt 2 html Dateien, eine für jede Seite
+- Die Dateien sind jeweils aufgeteilt in head und body
+- im Head werden die notwendigen Meta-Tags, Links zu CSS-Dateien und Skripten eingebunden
+- im Body wird der Inhalt und die Struktur der Seiten festgelegt
+- der Body selbst ist in 3 Bereiche eingeteilt:
+    1. Header: Navigation der Webseite
+    2. Main: Content der Seite (Map oder Nachrichten/Wetter)
+    3. Footer: Informationen über die Webseite
 
 ## CSS
 
