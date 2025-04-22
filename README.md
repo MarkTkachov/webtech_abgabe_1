@@ -20,4 +20,5 @@
  - Herausforderungen bei der Integration gab es keine. Die Teammitglieder haben sauberen und klar abgetrennten Code geschrieben, der auch den W3C CSS & HTML Validator bestanden hat.
  - Chrome (Desktop & Mobile)
  - Firefox (Desktop & Mobile)
+ - Edge (Desktop & Mobile)
  - Safari (Mobile)
