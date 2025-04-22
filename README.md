@@ -21,4 +21,4 @@
  - Chrome (Desktop & Mobile)
  - Firefox (Desktop & Mobile)
  - Edge (Desktop & Mobile)
- - Safari (Mobile)
+ - Safari (Desktop & Mobile) Desktop musste ich über einen [Online Safari Browser](https://www.browserling.com/safari-testing) testen, Mobile über iPhone im Haushalt
