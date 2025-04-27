@@ -240,6 +240,15 @@ function renderWeatherBlock(dayData) {
     `;
 }
 
+function renderTryAgainFetchWeather() {
+    return `
+        <div class="weather-block">
+            <p>Could not fetch weather data.</p>
+            <button id="try-again">Try Again</button>
+        </div>
+    `;
+}
+
 function weatherCodeToIcon(code) {
     if (SUN_CODES.includes(code)) {
         return "icons/sun.png";
@@ -253,10 +262,25 @@ function weatherCodeToIcon(code) {
     return "icons/sun.png";
 }
 
-fetchWeather().then((weatherData) => {
-    const weatherBlocks = weatherData.weather.map((day) =>
-        renderWeatherBlock(day)
+function onLoad() {
+    fetchWeather().then((weatherData) => {
+        const weatherBlocks = weatherData.weather.map((day) =>
+            renderWeatherBlock(day)
+        );
+    
+        weatherContainer.innerHTML = weatherBlocks.join("");
+    }).catch((err) => {
+        console.error(err);
+        weatherContainer.innerHTML = renderTryAgainFetchWeather();
+        const tryAgainButton = weatherContainer.querySelector("#try-again");
+        
+        tryAgainButton.addEventListener("click", () => {
+            weatherContainer.innerHTML = "";
+            onLoad();
+        });
+    }
     );
+}
 
-    weatherContainer.innerHTML = weatherBlocks.join("");
-});
+onLoad();
+
