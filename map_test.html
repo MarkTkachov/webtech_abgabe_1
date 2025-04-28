@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus Explorer – Campus Map</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin="" defer></script>
+  <script src="map.js" defer></script>
+</head>
+<body>
+  
+  <input type="checkbox" id="darkmode-toggle" class="darkmode-toggle" />
+
+  <header>
+    <h1>Campus Explorer</h1>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <label for="darkmode-toggle" class="darkmode-label"> Dark Mode</label>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="test.html">Start</a></li>
+            <li><a href="map_test.html">Campus Map</a></li>
+            <li><a href="https://www.hs-hannover.de/">HsH Webseite</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="karte">
+      <h2>Interaktive Campus-Karte</h2>
+      <div class="map-container">
+        <map name="campusmap">
+          <area shape="rect" coords="226,344,515,245" href="#" data-building="1A">
+          <area shape="rect" coords="503,329,843,171" href="#" data-building="1B">
+          <area shape="rect" coords="845,391,920,248" href="#" data-building="1C">
+          <area shape="rect" coords="839,386,921,244" href="#" data-building="1D">
+          <area shape="rect" coords="437,588,526,345" href="#" data-building="1E">
+          <area shape="rect" coords="488,416,917,404" href="#" data-building="1E">
+          <area shape="rect" coords="917,404,914,661" href="#" data-building="1F">
+          <area shape="rect" coords="782,769,853,669" href="#" data-building="1G">
+          <area shape="rect" coords="575,767,754,631" href="#" data-building="1H">
+          <area shape="rect" coords="427,786,531,644" href="#" data-building="1I">
+          <area shape="rect" coords="206,693,364,592" href="#" data-building="1J">
+          <area shape="rect" coords="234,527,358,433" href="#" data-building="1K">
+        </map>
+        <div id="map"></div>
+      </div>
+    </section>
+
+    <section id="info">
+      <h2>Gebäude-Information</h2>
+      <div id="building-info" class="info-box hidden"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Hochschule Hannover – Campus Explorer</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
