@@ -225,13 +225,14 @@ async function fetchWeather() {
  * @description Constructs a HTML string of a weather block for a given day.
  */
 function renderWeatherBlock(dayData) {
-    const { avgtempC, mintempC, maxtempC } = dayData;
+    const { avgtempC, mintempC, maxtempC, date } = dayData;
 
     return `
         <div class="weather-block">
             <img src="${weatherCodeToIcon(
                 dayData.hourly[4].weatherCode
             )}" alt="Weather Icon">
+            <p>${new Date(date).toLocaleDateString(undefined, { weekday: "long"})}</p>
             <p>Avg Temp: ${avgtempC}°C</p>
             <p>Min Temp: ${mintempC}°C</p>
             <p>Max Temp: ${maxtempC}°C</p>
