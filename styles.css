@@ -1,60 +1,76 @@
-#map {
-    height: 500px;
-    width: 500px;
-    border: 1px solid #ccc;
-}
-/* ========== GLOBALE VARIABLEN & RESETS ========== */
-/* CSS-Variablen für einfache Änderungen des Designs */
+
+/* css variablen */
 :root {
-  --primary-color: #2c3e50;    /* Hauptfarbe (dunkelblau) */
-  --secondary-color: #3498db;  /* Sekundärfarbe (hellblau) */
-  --accent-color: #e74c3c;     /* Akzentfarbe (rot) */
+  --primary-color: #2c3e50;    
+  --secondary-color: #3498db; 
+  --accent-color: #e74c3c;     /* Akzentfarbe */
   --light-color: #ecf0f1;      /* Hintergrundfarbe */
   --dark-color: #2c3e50;       /* Textfarbe */
   --font-main: 'Segoe UI', Arial, sans-serif; /* Hauptschriftart */
 }
 
-/* Border-Box-Modell für alle Elemente */
+/* borderbox modell*/
 * {
-  box-sizing: border-box; /* Padding wird in der Breite/Höhe mitberechnet */
+  box-sizing: border-box; /* padding bereits inklusive bie höhe/breite */
 }
 
-/* ========== GRUNDLEGENDE SEITENSTILE ========== */
+/* grundlegende einstellungen */
 body {
   font-family: var(--font-main);
   line-height: 1.6;          /* Bessere Lesbarkeit */
-  margin: 0;                 /* Standard-Margins entfernen */
-  padding: 0;                /* Standard-Padding entfernen */
+  margin: 0;                 
+  padding: 0;                
   color: var(--dark-color);
   background-color: var(--light-color);
 }
 
-/* ========== HEADER & NAVIGATION ========== */
+/* header + navigation */
 header {
   background-color: var(--primary-color);
   color: white;
   padding: 1rem;
-  position: sticky;          /* Header bleibt beim Scrollen oben */
+  position: sticky;          /* header bleibt beim Scrollen oben */
   top: 0;
-  z-index: 90;              /* Über anderen Elementen */
+  z-index: 90;              /* liegt über anderen Elementen */
+}
+
+/* Hamburger-Menu */
+.menu-toggle {
+  display: none; /* versteckt das Checkbox-Input */
+}
+
+.hamburger {
+  display: none; /* hidden */
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: white;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul {
-  list-style: none;          /* Listenpunkte entfernen */
+  list-style: none;          
   padding: 0;
   margin: 1rem 0 0;
-  display: flex;             /* Horizontale Navigation */
+  display: flex;             /* horizontale Navigation */
   justify-content: center;
-  gap: 1.6rem;              /* Abstand zwischen Links */
+  gap: 1.6rem;              /* abstand zwischen Links */
 }
 
 nav a {
   color: white;
-  text-decoration: none;     /* Unterstreichung entfernen */
+  text-decoration: none;     /* unterstreichung entfernen */
   font-weight: bold;
   padding: 0.5rem;
-  border-radius: 4px;        /* Abgerundete Ecken */
-  transition: all 0.3s;      /* Glatte Hover-Übergänge */
+  border-radius: 4px;        /* abgerundete Ecken */
+  transition: all 0.3s;      /* Übergang */
 }
 
 nav a:hover {
@@ -62,7 +78,7 @@ nav a:hover {
   background-color: rgba(255, 255, 255, 0.1); /* Leichter Hover-Effekt */
 }
 
-/* ========== HAUPTINHALT ========== */
+/* maininhalt */
 main {
   padding: 1rem;
   max-width: 1200px;         /* Maximale Breite für große Bildschirme */
@@ -73,58 +89,179 @@ section {
   margin-bottom: 2rem;
   padding: 1.5rem;
   background-color: white;
-  border-radius: 8px;        /* Abgerundete Ecken */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtiler Schatten */
+  border-radius: 8px;        
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* schatten effekt */
 }
 
-/* Abgerundete Ecken und Bild-Cut für .news-item Bilder */
+/* abgerundete Ecken */
 .news-item img {
-  width: 100%;                 /* Bild auf die Breite des Containers anpassen */
-  height: auto;                /* Höhe automatisch anpassen */
-  border-radius: 12px;         /* Abgerundete Ecken */
-  object-fit: cover;           /* Bild zuschneiden und an den Container anpassen */
-  max-height: 250px;           /* Maximale Höhe der Bilder auf Desktop (kann angepasst werden) */
-  overflow: hidden;            /* Verhindert, dass das Bild außerhalb des Containers herausragt */
+  width: 100%;                 
+  height: auto;                
+  border-radius: 12px;         
+  object-fit: cover;           /* bild zuschneiden und an den Container anpassen */
+  max-height: 250px;           
+  overflow: hidden;            /* bild ragt nicht heraus */
 }
 
-/* ========== WETTER-ANZEIGE ========== */
+/* Wetteranzeige */
 #weather {
   padding: 1rem;
   background-color: var(--secondary-color);
   color: white;
   border-radius: 8px;
-  min-height: 100px;        /* Konsistente Höhe */
+  min-height: 100px; 
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);       /* höhe bleibt konsistent */
   display: flex;
-  align-items: center;      /* Vertikal zentrieren */
-  justify-content: center;  /* Horizontal zentrieren */
+  align-items: center;      /* vertikal zentrieren */
+  justify-content: center;  /* horizontal zentrieren */
 }
 
-/* ========== FOOTER ========== */
+.weather-block {     
+  margin-right: 5rem;             /* abstand zwischen den icosn */
+}
+
+.weather-block img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
 footer {
   text-align: center;
   padding: 1.5rem;
   background-color: var(--primary-color);
   color: white;
-  margin-top: 2rem;         /* Abstand zum Hauptinhalt */
+  margin-top: 2rem;         
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
+#map {
+  height: 600px;  
+  width: 100%;
+  z-index: 1;
+}
+
+/*
+DARKMODE
+*/
+
+.darkmode-toggle {
+  display: none; 
+}
+
+.darkmode-label {
+  cursor: pointer;
+  background: var(--secondary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-left: 1rem;
+  font-weight: bold;
+  user-select: none;
+}
+
+.darkmode-label:hover {
+  background: var(--accent-color);
+}
+
+/* Wenn Checkbox angeklickt */
+
+body:has(#darkmode-toggle:checked) {
+  --primary-color: #1a1a1a;
+  --secondary-color: #555;
+  --accent-color: #ff7675;
+  --light-color: #121212;
+  --dark-color: #f1f1f1;
+  
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+body:has(#darkmode-toggle:checked) header,
+body:has(#darkmode-toggle:checked) footer {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+}
+
+body:has(#darkmode-toggle:checked) nav a {
+  color: var(--dark-color);
+}
+
+body:has(#darkmode-toggle:checked) main section {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+body:has(#darkmode-toggle:checked) #weather {
+  background-color: #333;
+} 
+
+
+/* Responsive Design */
 /* MOBILE (bis 600px) */
 @media (max-width: 600px) {
+
+  .hamburger {
+    display: block; /* Hamburger-Icon anzeigen */
+  }
+
+  .main-nav {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  /* öffne Menu wenn checkbox angeklickt */
+  .menu-toggle:checked ~ .main-nav {
+    max-height: 300px; /* Genug Platz für alle Links */
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  #weather {
+    flex-direction: column; /* stapelt die elemente vertikal */
+    align-items: center;    /* zentriert die elemente */
+    padding: 0.5rem;       /* reduziert den innenabstand */
+    overflow: hidden;      /* verhindert überlauf */
+  }
+
+  .weather-block {
+    margin-right: 0;       
+    margin-bottom: 1rem;   
+    width: 100%;           
+    text-align: center;    
+  }
+
+  .weather-block img {
+    width: 48px;          /* kleinere Icons für mobile */
+    height: 48px;
+  }
+
   nav ul {
-      flex-direction: column; /* Vertikale Navigation */
-      gap: 0.5rem;
-      align-items: center;
+    flex-direction: column; /* vertikale Navigation */
+    gap: 0.5rem;
+    align-items: center;
   }
 
   section {
-      padding: 1rem;          /* Kompaktere Abstände */
+      padding: 1rem;          
   }
 
-  /* Kleinere Schriftgrößen */
+
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.3rem; }
 }
+
 
 /* DESKTOP (ab 961px) */
 @media (min-width: 961px) {
@@ -135,8 +272,7 @@ footer {
       padding: 2rem;
   }
 
-  #wetter {
-      position: sticky;      /* Beim Scrollen sichtbar */
-      top: 120px;            /* Unter der Navigation */
-  }
+
+  
+  
 }
