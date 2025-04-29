@@ -5,17 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Campus Explorer – Start</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="script.js"></script>
+  <script src="weather.js" defer></script>
 </head>
 <body>
+  <!-- id für darkmode-->
+  <input type="checkbox" id="darkmode-toggle" class="darkmode-toggle" />
+
   <header>
     <h1>Campus Explorer</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Start</a></li>
-        <li><a href="map.html">Campus Map</a></li>
-        <li><a href="https://www.hs-hannover.de/">HsH Webseite</a></li>
-      </ul>
+
+    <!-- hamburger -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <label for="darkmode-toggle" class="darkmode-label"> Dark Mode</label>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="map.html">Campus Map</a></li>
+            <li><a href="https://www.hs-hannover.de/">HsH Webseite</a></li>
+        </ul>
     </nav>
   </header>
 
