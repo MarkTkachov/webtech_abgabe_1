@@ -27,11 +27,20 @@ body {
 /* header + navigation */
 header {
   background-color: var(--primary-color);
-  color: white;
   padding: 1rem;
   position: sticky;          /* header bleibt beim Scrollen oben */
   top: 0;
   z-index: 90;              /* liegt über anderen Elementen */
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-top h1 {
+  color: white;
 }
 
 /* Hamburger-Menu */
@@ -119,7 +128,14 @@ section {
 
 .weather-block {     
   margin-right: 5rem;             /* abstand zwischen den icosn */
+  line-height: 0.8rem;
 }
+
+.weather-block .day {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 
 .weather-block img {
   width: 64px;
@@ -141,6 +157,7 @@ footer {
   z-index: 1;
 }
 
+
 /*
 DARKMODE
 */
@@ -158,6 +175,7 @@ DARKMODE
   margin-left: 1rem;
   font-weight: bold;
   user-select: none;
+  text-align: center;
 }
 
 .darkmode-label:hover {
@@ -271,8 +289,4 @@ body:has(#darkmode-toggle:checked) #weather {
       gap: 2rem;
       padding: 2rem;
   }
-
-
-  
-  
 }
