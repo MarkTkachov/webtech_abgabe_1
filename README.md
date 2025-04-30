@@ -10,8 +10,15 @@
 
 ## CSS
 
- - hier rein
- - 
+ - CSS-Variablen: Um Konsistenz zu schaffen und Redundanz zu vermeiden
+ - Flexbox ermöglicht eine flexible Layout-Struktur, vorallem für Header/Navigationselemente
+   -> Responsiv, passt sich der Bildschirmgrösse an
+ - Header auf sticky gesetzt
+ - Media Queries ermöglichen optimale Darstellung für unterschiedliche Geräte
+ - Hamburger-Menü vorallem für Mobile-Ansicht geeignet
+   -> Platzsparend und benutzerfreundlich
+ - Box-Sizing: border-box
+   -> Padding bereits inklusive bei der Höhe/Breite
 
 ## JavaScript
 
