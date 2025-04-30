@@ -232,7 +232,7 @@ function renderWeatherBlock(dayData) {
             <img src="${weatherCodeToIcon(
                 dayData.hourly[4].weatherCode
             )}" alt="Weather Icon">
-            <p>${new Date(date).toLocaleDateString(undefined, { weekday: "long"})}</p>
+            <p class="day">${new Date(date).toLocaleDateString(undefined, { weekday: "long"})}</p>
             <p>Avg Temp: ${avgtempC}°C</p>
             <p>Min Temp: ${mintempC}°C</p>
             <p>Max Temp: ${maxtempC}°C</p>
