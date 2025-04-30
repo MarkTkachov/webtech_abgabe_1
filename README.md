@@ -33,6 +33,9 @@
  - Herausforderungen bei der Integration gab es keine. Die Teammitglieder haben sauberen und klar abgetrennten Code geschrieben, der auch den W3C CSS & HTML Validator bestanden hat.
  - Mobile-Ansicht wurde über die [VS Code Extension 'Live Preview'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) aufgerufen und getestet.
  - Safari Desktop musste ich über einen [Online Safari Browser](https://www.browserling.com/safari-testing) testen, Mobile über iPhone im Haushalt
+ - Am Anfang gab es Probleme mit der Mobile-Ansicht, dass das Wetter zu groß war und der Dark Mode Button eine neue Ebene geöffnet hat, dies wurde im Team besprochen und gelöst
+    - Lösung war ganz simpel, Font-Size und Padding-Size wurde reduziert und Dark Mode Button wurde auf gleicher Ebene wie Überschrift positioniert
+ - Weiteres Problem war, dass der Dark Mode Zustand nicht zwischen Seiten gespeichert wurde, dies habe ich dann der Gruppe mitgeteilt und man konnte dies mit etwas JavaScript-Code lösen
  - Chrome (Desktop & Mobile): Funktioniert wie erwartet
  - Firefox (Desktop & Mobile): Funktioniert wie erwartet
  - Edge (Desktop & Mobile): Funktioniert wie erwartet
