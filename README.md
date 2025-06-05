@@ -1,3 +1,11 @@
+# Webtechnologien Abgabe I
+
+Gruppe 24
+ - Serkut Yildirim
+ - Mark Tkachov
+ - Paul Minor
+ - Jonas Iseke
+
 ## HTML
 - Wir nutzen insgesamt 2 html Dateien, eine für jede Seite
 - Die Dateien sind jeweils aufgeteilt in head und body
